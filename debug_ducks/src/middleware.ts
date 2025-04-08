@@ -12,8 +12,8 @@ console.log("Can't go back here!");
 
 export const config = {
     matcher: [
-    " ???? ",
-        " ???? "
+        "/create-item",
+        "/update-item/:path*"
     ] 
 };
 
