@@ -62,7 +62,7 @@ export default function ShowItemDetails() {
         </div>
 
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-bold mb-2">UGA Item Details</h1>
+          <h1 className="text-4xl font-bold mb-2"> Web Programming</h1>
           <p className="text-lg text-gray-700">View Item's Info</p>
           <hr className="my-4 border-gray-400" />
         </div>
