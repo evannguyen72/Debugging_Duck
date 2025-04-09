@@ -59,9 +59,7 @@ const Navbar = () => {
             <Link href='/about' className='text-black hover:underline px-3 py-2'>
               About
             </Link>
-            <Link href='/contact' className='text-black hover:underline px-3 py-2'>
-              Contact
-            </Link>
+            
             <Link href='/show-items' className='text-black hover:underline px-3 py-2'>
               Content
             </Link>
@@ -87,9 +85,6 @@ const Navbar = () => {
           </Link>
           <Link href='/about' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
             About
-          </Link>
-          <Link href='/contact' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
-            Contact
           </Link>
           <Link href='/show-items' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
             Content
