@@ -2,15 +2,16 @@ import mongoose, { Schema, Document, Model } from "mongoose";
 
 // Mongoose provides properties such as the _id in Document, we extend this
 interface IItem extends Document {
-  owner: number;
+  owner: string;
   title: string;
   description?: string;
   url?: string;
+  likeCount: number;
 }
 
 const itemSchema = new Schema<IItem>({
   owner: {
-    type: Number,
+    type: String,
   },
   title: {
     type: String,
@@ -22,6 +23,10 @@ const itemSchema = new Schema<IItem>({
   url: {
     type: String,
     required: false,
+  },
+  likeCount: {
+    type: Number,
+    default: 0,
   },
 });
 

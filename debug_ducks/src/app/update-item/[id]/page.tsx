@@ -10,6 +10,7 @@ export default function UpdateItem() {
       title: '',
       description: '',
       url: '',
+      likeCount: 0,
     });
 
     const router = useRouter();
@@ -30,6 +31,7 @@ export default function UpdateItem() {
             title: itemData.title || '',
             description: itemData.description || '',
             url: itemData.url || '',
+            likeCount: itemData.likeCount || 0,
           });
         } catch (error) {
           console.error('Error from UpdateItemInfo:', error);

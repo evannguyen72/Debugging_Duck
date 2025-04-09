@@ -12,6 +12,7 @@ interface ItemProps {
     title: string;
     description: string;
     url: string;
+    likeCount: number;
   };
 }
 
@@ -80,6 +81,7 @@ export default function ShowItemDetails() {
          <div className="mt-4 space-y-2">
            <h2 className="text-xl font-semibold">{item.title}</h2>
            <p className="text-gray-600">{item.description}</p>
+           <p className="text-gray-600">👍 {item.likeCount} Likes</p>
          </div>
 
          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">

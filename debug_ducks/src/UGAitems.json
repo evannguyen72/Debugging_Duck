@@ -1,73 +1,63 @@
 [
     {
-      "_id": 1,
-      "owner": 2,
-      "title": "Terry Business Learning Community",
-      "description": "A modern hub for business students, offering collaborative workspaces and innovative classrooms.",
-      "url": "https://images.unsplash.com/photo-1741091750011-f0fb9b8400cc?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3DY"
+      "owner": "Mariah Jaeck",
+      "title": "World History",
+      "description": "AI Summary",
+      "url": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
     {
-      "_id": 2,
-      "owner": 1,
-      "title": "Miller Learning Center",
-      "description": "A central academic building with a library, study spaces, and lecture halls for students.",
-      "url": "https://images.unsplash.com/photo-1520501247332-6fb052b72414?q=80&w=2372&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "owner": "Callum Mobley",
+      "title": "General Chemistry I",
+      "description": "AI Summary",
+      "url": "https://plus.unsplash.com/premium_photo-1673892648220-9c9aa16d6294?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "_id": 3,
-      "owner": 3,
-      "title": "Snelling Dining Hall",
-      "description": "One of UGA's most popular dining halls, open 24/7 for hungry students.",
-      "url": "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=2510&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "owner": "Priya Sampat",
+      "title": "Environmental Science",
+      "description": "AI Summary",
+      "url": "https://images.unsplash.com/photo-1475906089153-644d9452ce87?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZW52aXJvbm1lbnRhbCUyMHNjaWVuY2V8ZW58MHx8MHx8fDA%3D"
     },
     {
-      "_id": 4,
-      "owner": 4,
-      "title": "Ramsey Student Center",
-      "description": "A massive recreation facility featuring pools, basketball courts, and fitness spaces.",
-      "url": "https://images.unsplash.com/photo-1596357395217-80de13130e92?q=80&w=2371&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "owner": "Evan Nguyen",
+      "title": "Ethics and Society",
+      "description": "AI Summary",
+      "url": "https://images.unsplash.com/photo-1597761081347-b9d37f912156?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "_id": 5,
-      "owner": 5,
-      "title": "Tate Student Center",
-      "description": "A lively hub for student activities, dining, and social events at UGA.",
-      "url": "https://images.unsplash.com/photo-1530735606451-8f5f13955328?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "owner": "Callum Mobley",
+      "title": "Cultural Anthropology",
+      "description": "AI Summary",
+      "url": "https://images.unsplash.com/photo-1698864606591-3e9d396859df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YW50aHJvcG9sb2d5fGVufDB8fDB8fHww"
     },
     {
-      "_id": 6,
-      "owner": 2,
-      "title": "UGA Main Library",
-      "description": "The largest library on campus, filled with resources for research and study.",
-       "url": "https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "owner": "Mariah Jaeck",
+      "title": "American Government",
+      "description": "AI Summary",
+       "url": "https://images.unsplash.com/photo-1616873354936-b9e21b744c54?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8QW1lcmljYW4lMjBHb3Zlcm5tZW50fGVufDB8fDB8fHww"
     },
     {
-      "_id": 7,
-      "owner": 1,
-      "title": "Memorial Hall",
-      "description": "A historic building housing student affairs and administrative offices.",
-       "url": "https://images.unsplash.com/photo-1567601174983-fd174341c1e0?q=80&w=2274&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "owner": "Priya Sampat",
+      "title": "Business Foundations",
+      "description": "AI Summary",
+       "url": "https://plus.unsplash.com/premium_photo-1661347859297-859b8ae1d7c5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fDB8fHww"
     },
     {
-      "_id": 8,
-      "owner": 3,
-      "title": "Park Hall",
-      "description": "Home to the English and foreign language departments, a place for literary exploration.",
-       "url": "https://images.unsplash.com/photo-1527576539890-dfa815648363?q=80&w=2265&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "owner": "Evan Nguyen",
+      "title": "College Algebra",
+      "description": "AI Summary",
+       "url": "https://images.unsplash.com/photo-1560785472-2f186f554644?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWxnZWJyYSUyMGVxdWF0aW9ufGVufDB8fDB8fHww"
     },
     {
-      "_id": 9,
-      "owner": 4,
-      "title": "Dawson Hall",
-      "description": "A facility dedicated to family and consumer sciences, promoting well-being and community.",
-       "url": "https://images.unsplash.com/photo-1637268452416-91efa6a6c059?q=80&w=2235&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3DD"
+      "owner": "Mariah Jaeck",
+      "title": "Introduction to Psychology",
+      "description": "AI Summary",
+       "url": "https://images.unsplash.com/photo-1573511860302-28c524319d2a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHN5Y2hvbG9neXxlbnwwfHwwfHx8MA%3D%3D"
     },
     {
-      "_id": 10,
-      "owner": 5,
-      "title": "Science Learning Center",
-      "description": "A cutting-edge facility for hands-on science education and research.",
-       "url": "https://images.unsplash.com/photo-1475906089153-644d9452ce87?q=80&w=2369&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "owner": "Callum Mobley",
+      "title": "Public Speaking",
+      "description": "AI Summary",
+       "url": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHVibGljJTIwc3BlYWtpbmd8ZW58MHx8MHx8fDA%3D"
     }
   ]
   

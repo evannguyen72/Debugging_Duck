@@ -10,6 +10,7 @@ export default function ItemAddForm() {
     title: '',
     description: '',
     url: '',
+    likeCount: 0,
   });
 
   const router = useRouter();
@@ -38,7 +39,7 @@ export default function ItemAddForm() {
         throw new Error('Network response was not ok');
       }
 
-      setFormData({ owner: 0, title: '', description: '', url: '' });
+      setFormData({ owner: 0, title: '', description: '', url: '', likeCount: 0 });
       router.push('/show-items');
     } catch (error) {
       console.error('Error in CreateItem!', error);
