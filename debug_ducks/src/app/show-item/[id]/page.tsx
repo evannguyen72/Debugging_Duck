@@ -50,60 +50,64 @@ export default function ShowItemDetails() {
   };
 
   return (
-    
-    <div className="bg-white min-h-screen text-black py-10">
+    <div className="bg-gray-50 min-h-screen text-black py-10">
       <div className="max-w-5xl mx-auto px-4">
+        {/* Back Button */}
         <div className="mb-8">
           <Link
             href="/show-items"
-            className="inline-block px-4 py-2 border border-gray-500 text-red-700 hover:bg-red-800 hover:text-white transition rounded"
+            className="inline-block px-4 py-2 border border-teal-500 text-teal-600 hover:bg-teal-600 hover:text-white transition rounded-md"
           >
-            Show Item List
+            ⬅ Back to Item List
           </Link>
         </div>
-
+  
+        {/* Header */}
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-bold mb-2"> Web Programming</h1>
+          <h1 className="text-4xl font-bold text-teal-700 mb-2">Web Programming</h1>
           <p className="text-lg text-gray-700">View Item's Info</p>
-          <hr className="my-4 border-gray-400" />
+          <hr className="my-4 border-gray-300" />
         </div>
+  
+        {/* Item Display */}
         {item && (
-         <Card className="max-w-3xl mx-auto">
-         <div className="w-full h-72 relative">
-           <Image
-             src={item.url}
-             alt={item.title}
-             fill
-             className="object-cover rounded-md"
-           />
-         </div>
-
-         <div className="mt-4 space-y-2">
-           <h2 className="text-xl font-semibold">{item.title}</h2>
-           <p className="text-gray-600">{item.description}</p>
-           <p className="text-gray-600">👍 {item.likeCount} Likes</p>
-         </div>
-
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-           <button
-             type="button"
-             onClick={onDeleteClick}
-             className="w-full px-6 py-2 border border-gray-500 text-red-700 hover:bg-red-700 hover:text-white transition rounded"
-           >
-             Delete Item
-           </button>
-
-           <Link
-             href={`/update-item/${id}`}
-             className="w-full px-6 py-2 border border-gray-500 text-red-700 hover:bg-red-700 hover:text-white transition rounded text-center"
-           >
-             Edit Item
-           </Link>
-         </div>
-       </Card>
-       
+          <Card className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
+            {/* Image */}
+            <div className="w-full h-72 relative rounded-lg overflow-hidden">
+              <Image
+                src={item.url}
+                alt={item.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+  
+            {/* Item Info */}
+            <div className="mt-6 space-y-2 text-center">
+              <h2 className="text-2xl font-semibold text-teal-700">{item.title}</h2>
+              <p className="text-gray-700">{item.description}</p>
+              {/*<p className="text-gray-500">👍 {item.likeCount} Likes</p> ---------------------------------------------------- add this back later when we have likeCounter*/}
+            </div>
+  
+            {/* Action Buttons */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+              <button
+                type="button"
+                onClick={onDeleteClick}
+                className="w-full px-6 py-2 border border-red-500 text-red-600 hover:bg-red-600 hover:text-white transition rounded-md"
+              >
+                Delete Item
+              </button>
+  
+              <Link
+                href={`/update-item/${id}`}
+                className="w-full px-6 py-2 border border-teal-500 text-teal-600 hover:bg-teal-600 hover:text-white transition rounded-md text-center"
+              >
+                Edit Item
+              </Link>
+            </div>
+          </Card>
         )}
-
       </div>
     </div>
   );
