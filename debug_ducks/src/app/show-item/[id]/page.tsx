@@ -86,7 +86,7 @@ export default function ShowItemDetails() {
             <div className="mt-6 space-y-2 text-center">
               <h2 className="text-2xl font-semibold text-teal-700">{item.title}</h2>
               <p className="text-gray-700">{item.description}</p>
-              {/*<p className="text-gray-500">👍 {item.likeCount} Likes</p> ---------------------------------------------------- add this back later when we have likeCounter*/}
+              <p className="text-gray-500">👍 {item.likeCount} Likes</p> 
             </div>
   
             {/* Action Buttons */}

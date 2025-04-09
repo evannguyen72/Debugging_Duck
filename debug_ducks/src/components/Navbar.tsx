@@ -45,7 +45,6 @@ const Navbar = () => {
 
           {/* Logo & Site Title */}
           <Link className='flex items-center' href='/'>
-            <Image className='h-10 w-auto' src={logo} alt='UGA arch logo' />
             <span className='hidden md:block text-teal-600 text-3xl font-bold ml-2'>
               ClassClips
             </span>

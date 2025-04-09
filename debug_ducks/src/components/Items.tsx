@@ -28,7 +28,7 @@ import {useState, useEffect} from 'react';
 
     return (
     
-        <section className='px-4 py-6'>
+        <section className='bg-teal-50 min-h-screen'>
             <div className='container-xl lg:container m-auto px-4 py-6'>
 
  

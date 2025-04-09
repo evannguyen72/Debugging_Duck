@@ -9,14 +9,8 @@ interface ContentProps {
   
   const Content = ({ children, className = "" }: ContentProps) => {
     return (
-        <div >
-        <Image 
-            src={bgarch}
-            alt="Background UGA arch" 
-            fill
-            priority={true}
-            className="object-cover w-full h-full z-[-1]"
-        />
+        <div>
+        
         {children}
       </div>
     );

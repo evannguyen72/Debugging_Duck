@@ -74,53 +74,59 @@ export default function UpdateItem() {
       }
     };
 
-  return (
-    <div className="max-w-lg mx-auto mt-10 px-4">
-      <h2 className="text-lg font-semibold mt-2">Edit Item</h2>
-      <Card>
-        <form onSubmit={handleSubmit} className="space-y-4  p-4 rounded">
-         <input
-        name="owner"
-        type="number"
-        value={item.owner}
-        onChange={handleChange}
-        placeholder="Owner ID"
-        required
-        className="w-full p-2 border rounded"
-         />
-         <input
-        name="title"
-        type="text"
-        value={item.title}
-        onChange={handleChange}
-        placeholder="Title"
-        required
-        className="w-full p-2 border rounded"
-        />
-        <textarea
-        name="description"
-        value={item.description}
-        onChange={handleChange}
-        placeholder="Description"
-        required
-        className="w-full p-2 border rounded"
-        />
-       <input
-        name="url"
-        type="url"
-        value={item.url}
-        onChange={handleChange}
-        placeholder="Image URL"
-        required
-        className="w-full p-2 border rounded"
-       />
-        <button
-        type="submit"
-        className="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-600"
-       > Update Item
-       </button>
-    </form>
-    </Card>
-    </div>
-  );
+    return (
+      <div className="min-h-screen bg-teal-50 py-10 px-4 py-12 px-4 text-black">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-teal-800 mb-6">Edit Item</h2>
+    
+          <Card className="rounded-2xl p-8 shadow-lg bg-white bg-opacity-90">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <input
+                name="owner"
+                type="number"
+                value={item.owner}
+                onChange={handleChange}
+                placeholder="Owner ID"
+                required
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+              />
+              <input
+                name="title"
+                type="text"
+                value={item.title}
+                onChange={handleChange}
+                placeholder="Title"
+                required
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+              />
+              <textarea
+                name="description"
+                value={item.description}
+                onChange={handleChange}
+                placeholder="Description"
+                required
+                className="w-full p-3 h-40 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-teal-500"
+              />
+              <input
+                name="url"
+                type="url"
+                value={item.url}
+                onChange={handleChange}
+                placeholder="Image URL"
+                required
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+              />
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full shadow-md transition"
+                >
+                  Update Item
+                </button>
+              </div>
+            </form>
+          </Card>
+        </div>
+      </div>
+    );
 }
