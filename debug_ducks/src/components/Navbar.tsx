@@ -17,20 +17,19 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='bg-red-700 border-b-1 border-white'>
+    <nav className='bg-white border-b border-gray-200 shadow-sm'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div className='relative flex h-20 items-center justify-between'>
+
+          {/* Mobile Menu Button */}
           <div className='absolute inset-y-0 left-0 flex items-center md:hidden'>
-            {/* <!-- Mobile menu button - hamburger --> */}
             <button
               type='button'
               id='mobile-dropdown-button'
-              className='relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+              className='inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black'
               aria-controls='mobile-menu'
               aria-expanded='false'
             >
-              <span className='absolute -inset-0.5'></span>
-              <span className='sr-only'>Open main menu</span>
               <svg
                 className='block h-6 w-6'
                 fill='none'
@@ -39,100 +38,67 @@ const Navbar = () => {
                 stroke='currentColor'
                 aria-hidden='true'
               >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
-                />
+                <path strokeLinecap='round' strokeLinejoin='round' d='M4 6h16M4 12h16M4 18h16' />
               </svg>
             </button>
           </div>
 
-          <div className='flex flex-1 items-center justify-center md:items-stretch md:justify-start'>
-            {/* <!-- Logo --> */}
-            <Link className='flex flex-shrink-0 items-center' href='/'>
-              <Image className='h-10 w-auto' src={logo} alt='UGA arch logo' />
+          {/* Logo & Site Title */}
+          <Link className='flex items-center' href='/'>
+            <Image className='h-10 w-auto' src={logo} alt='UGA arch logo' />
+            <span className='hidden md:block text-teal-600 text-3xl font-bold ml-2'>
+              ClassClips
+            </span>
+          </Link>
 
-              <span className='hidden md:block text-white text-2xl font-bold ml-2'>
-                UGA Items
-              </span>
+          {/* Desktop Links */}
+          <div className='hidden md:ml-6 md:flex space-x-4'>
+            <Link href='/' className='text-black hover:underline px-3 py-2'>
+              Home
             </Link>
-            {/* <!-- Desktop Menu Hidden below md screens --> */}
-            <div className='hidden md:ml-6 md:block'>
-              <div className='flex space-x-2'>
-                <Link
-                  href='/'
-                  className='text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
-                >
-                  Home
-                </Link>
-                <Link
-                  href='/about'
-                  className='text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
-                >
-                  About
-                </Link>
-                <a
-                  href='/contact'
-                  className='text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
+            <Link href='/about' className='text-black hover:underline px-3 py-2'>
+              About
+            </Link>
+            <Link href='/contact' className='text-black hover:underline px-3 py-2'>
+              Contact
+            </Link>
+            <Link href='/show-items' className='text-black hover:underline px-3 py-2'>
+              Content
+            </Link>
           </div>
 
-          {/* <!-- Right Side Menu (Logged Out) --> */}
-         { 
-          !isLoggedIn && (
-                <div className='hidden md:block md:ml-6'>
-                  <div className='flex items-center'>
-                    <button onClick = {handleLogin} className='flex items-center text-white bg-gray-400 hover:bg-gray-500 hover:text-white rounded-md px-3 py-2'>
-                      <span>Login | Register</span>
-                    </button>
-                  </div>
-                </div>
-          )
-        }
-
-             {/* <!-- Right Side Menu (Logged In) --> */}
-        { isLoggedIn && (
-                <div className='hidden md:block md:ml-6'>
-                  <div className='flex items-center'>
-                    <button onClick = {handleLogin} className='flex items-center text-white bg-gray-400 hover:bg-gray-500 hover:text-white rounded-md px-3 py-2'>
-                      <span>Logout</span>
-                    </button>
-                  </div>
-                </div>
-        )}
-
+          {/* Auth Button */}
+          <div className="hidden md:flex space-x-4">
+            <button
+              onClick={handleLogin}
+              className='px-4 py-1.5 bg-orange-500 text-white border border-black rounded-md hover:bg-orange-600 transition'
+            >
+              {isLoggedIn ? 'Logout' : 'Login | Register'}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-      <div className='hidden' id='mobile-menu'>
+      {/* Mobile Menu */}
+      <div className='md:hidden hidden' id='mobile-menu'>
         <div className='space-y-1 px-2 pb-3 pt-2'>
-          <a
-            href='#'
-            className=' text-white block rounded-md px-3 py-2 text-base font-medium'
-          >
+          <Link href='/' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
             Home
-          </a>
-          <a
-            href='#'
-            className='text-white block rounded-md px-3 py-2 text-base font-medium'
-          >
+          </Link>
+          <Link href='/about' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
             About
-          </a>
-          <a
-            href='#'
-            className='text-white block rounded-md px-3 py-2 text-base font-medium'
-          >
+          </Link>
+          <Link href='/contact' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
             Contact
-          </a>
-          <button className='flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4'>
-            <i className='fa-brands fa-google mr-2'></i>
-            <span>Login or Register</span>
+          </Link>
+          <Link href='/show-items' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
+            Content
+          </Link>
+          <button
+            onClick={handleLogin}
+            className='w-full text-left text-black border border-black px-3 py-2 rounded-md mt-2 hover:bg-black hover:text-white transition'
+          >
+            {isLoggedIn ? 'Logout' : 'Login or Register'}
           </button>
         </div>
       </div>
@@ -150,3 +116,5 @@ export default Navbar;
 //   const handleLogin = () => {
 //     setIsLoggedIn(prev=>!prev);
 //   }
+
+
