@@ -25,6 +25,7 @@ export const config = {
     "/create-item/:path*",
     "/update-item/:path*",
     "/delete-item/:path*",
+    
   ],
 };
 
