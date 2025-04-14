@@ -45,65 +45,69 @@ const SignupForm = () => {
 
   return (
     <>
-        <div className="grid mt-8 justify-items-center"> 
-            <div className="shadow-lg p-5 rounded-lg border-t-4 bg-white border-red-700">
-                <h1 className="text-xl text-slate-600 font-bold my-4">Signup</h1>
-      <form
-  onSubmit={handleSubmit}
-  className="my-8 max-w-md mx-auto flex flex-col gap-4 border p-6 border-gray-300 rounded-md shadow-sm bg-white"
->
-  <div className="flex flex-col">
-    <label htmlFor="username" className="mb-1 text-sm font-medium text-gray-700">
-      Username
-    </label>
-    <input
-      className="border border-gray-400 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
-      type="text"
-      name="username"
-      id="username"
-      required
-    />
-  </div>
+      <div className="grid mt-8 justify-items-center"> 
+        <div className="shadow-lg p-5 rounded-lg border-t-4 bg-white border-teal-600 w-full max-w-md">
+          <h1 className="text-2xl text-teal-600 font-bold my-4 text-center">Signup</h1>
 
-  <div className="flex flex-col">
-    <label htmlFor="email" className="mb-1 text-sm font-medium text-gray-700">
-      Email Address
-    </label>
-    <input
-      className="border border-gray-400 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
-      type="email"
-      name="email"
-      id="email"
-      required
-    />
-  </div>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4 border p-6 border-gray-300 rounded-md shadow-sm bg-white"
+          >
+            <div className="flex flex-col">
+              <label htmlFor="username" className="mb-1 text-sm font-medium text-black">
+                Username
+              </label>
+              <input
+                className="border border-gray-400 rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-teal-600"
+                type="text"
+                name="username"
+                id="username"
+                required
+              />
+            </div>
 
-  <div className="flex flex-col">
-    <label htmlFor="password" className="mb-1 text-sm font-medium text-gray-700">
-      Password
-    </label>
-    <input
-      className="border border-gray-400 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
-      type="password"
-      name="password"
-      id="password"
-      required
-    />
-  </div>
+            <div className="flex flex-col">
+              <label htmlFor="email" className="mb-1 text-sm font-medium text-black">
+                Email Address
+              </label>
+              <input
+                className="border border-gray-400 rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-teal-600"
+                type="email"
+                name="email"
+                id="email"
+                required
+              />
+            </div>
 
-  <button
-    type="submit"
-    className="bg-red-700 text-white rounded px-4 py-2 mt-2 hover:bg-red-800 transition"
-  >
-    Signup
-  </button>
-</form>
-<p className="my-3 text-center">
-        Already have an account?
-        <Link href="/login" className="mx-2 underline">Login</Link>
-      </p>
+            <div className="flex flex-col">
+              <label htmlFor="password" className="mb-1 text-sm font-medium text-black">
+                Password
+              </label>
+              <input
+                className="border border-gray-400 rounded px-3 py-2 text-black focus:outline-none focus:ring-2 focus:ring-teal-600"
+                type="password"
+                name="password"
+                id="password"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="bg-teal-600 text-white rounded px-4 py-2 mt-2 hover:bg-teal-700 transition"
+            >
+              Signup
+            </button>
+          </form>
+
+          <p className="my-3 text-center text-black">
+            Already have an account?
+            <Link href="/login" className="mx-2 underline text-teal-600 hover:text-teal-800">
+              Login
+            </Link>
+          </p>
+        </div>
       </div>
-     </div>
     </>
   );
 };
