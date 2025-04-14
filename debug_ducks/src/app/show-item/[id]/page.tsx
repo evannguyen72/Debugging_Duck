@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, useParams } from 'next/navigation';
-import Card from '../../../components/Card';
 
 interface ItemProps {
   item: {
@@ -50,64 +49,71 @@ export default function ShowItemDetails() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen text-black py-10">
-      <div className="max-w-5xl mx-auto px-4">
+    <div className="min-h-screen bg-teal-50 px-4 py-10">
+      <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-md border border-teal-400 p-8">
         {/* Back Button */}
-        <div className="mb-8">
+        <div className="mb-6">
           <Link
             href="/show-items"
-            className="inline-block px-4 py-2 border border-teal-500 text-teal-600 hover:bg-teal-600 hover:text-white transition rounded-md"
+            className="inline-block text-teal-600 hover:underline text-sm"
           >
-            ⬅ Back to Item List
+            ← Back to Item List
           </Link>
         </div>
-  
+
         {/* Header */}
-        <div className="text-center mb-6">
-          <h1 className="text-4xl font-bold text-teal-700 mb-2">Web Programming</h1>
-          <p className="text-lg text-gray-700">View Item's Info</p>
-          <hr className="my-4 border-gray-300" />
-        </div>
-  
-        {/* Item Display */}
-        {item && (
-          <Card className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
-            {/* Image */}
-            <div className="w-full h-72 relative rounded-lg overflow-hidden">
-              <Image
-                src={item.url}
-                alt={item.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-  
-            {/* Item Info */}
-            <div className="mt-6 space-y-2 text-center">
-              <h2 className="text-2xl font-semibold text-teal-700">{item.title}</h2>
-              <p className="text-gray-700">{item.description}</p>
-              <p className="text-gray-500">👍 {item.likeCount} Likes</p> 
-            </div>
-  
-            {/* Action Buttons */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-              <button
-                type="button"
-                onClick={onDeleteClick}
-                className="w-full px-6 py-2 border border-red-500 text-red-600 hover:bg-red-600 hover:text-white transition rounded-md"
-              >
-                Delete Item
-              </button>
-  
-              <Link
-                href={`/update-item/${id}`}
-                className="w-full px-6 py-2 border border-teal-500 text-teal-600 hover:bg-teal-600 hover:text-white transition rounded-md text-center"
-              >
-                Edit Item
-              </Link>
-            </div>
-          </Card>
+        <h1 className="text-3xl font-bold text-teal-700 text-center mb-2">
+          Web Programming
+        </h1>
+        <p className="text-center text-gray-700 mb-6">
+          Web programming is the process of designing and developing websites or web applications using a variety of programming languages, tools, and frameworks. It encompasses both front-end and back-end development. Front-end programming involves creating the user interface that users interact with, using languages like HTML, CSS, and JavaScript. This ensures that the website is visually appealing, responsive, and functions properly across different devices and browsers. On the other hand, back-end programming focuses on the server-side, where the application’s logic and database interactions occur. Languages such as PHP, Python, Ruby, or Node.js are commonly used.
+        </p>
+
+        {/* Image */}
+        {item?.url && (
+          <div className="w-full h-72 relative mb-6 rounded-md overflow-hidden">
+            <Image
+              src={item.url}
+              alt={item.title}
+              fill
+              className="object-cover"
+            />
+          </div>
         )}
+
+        {/* created by */}
+        <div className="text-sm text-gray-600 mb-2">Created by: You</div>
+
+        {/* document box */}
+        <div className="w-full p-4 border border-gray-300 rounded-md text-gray-800 whitespace-pre-wrap bg-gray-50">
+          {item?.description}
+        </div>
+
+        {/* likes */}
+        <p className="text-sm text-gray-500 mt-4">👍 {item?.likeCount} Likes</p>
+
+        {/* action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          <button
+            type="button"
+            onClick={onDeleteClick}
+            className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full shadow-md w-full sm:w-auto"
+          >
+            Delete Document
+          </button>
+
+          <Link
+            href={`/update-item/${id}`}
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full shadow-md text-center w-full sm:w-auto"
+          >
+            Edit Document
+          </Link>
+        </div>
+
+        {/* date */}
+        <div className="text-right text-sm text-gray-500 mt-4">
+          Posted 4/3/25
+        </div>
       </div>
     </div>
   );
