@@ -2,98 +2,75 @@
 // This is from my Nextjs resources, Navbar_basic
 import Image from 'next/image';
 import logo from '../assets/UGAlogo_Arch_1in.png';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Link from 'next/link';
-// import profileDefault from '@/assets/images/profile.png';
+import { Session } from "next-auth";
+import { doLogout } from "../app/actions/index";
 
-const Navbar = () => {
+interface Session {
+  user?: {
+    name?: string;
+    email?: string;
+    image?: string;
+  };
+}
+interface NavbarProps {
+  session: Session | null;
+}
 
+const Navbar = ({ session }: NavbarProps) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(!!session?.user);
+ 
+  useEffect(() => {
+    setIsLoggedIn(!!session?.user);
+  }, [session]);
 
-  const [isLoggedIn,setIsLoggedIn ] = useState(false);
-
-  const handleLogin = () => {
-    setIsLoggedIn(prev => !prev);
-
-  }
+  const handleLogout = () => {
+    doLogout();
+    setIsLoggedIn(!!session?.user);
+  };
 
   return (
-    <nav className='bg-white border-b border-gray-200 shadow-sm'>
+    <nav className='bg-red-700 border-b-1 border-white'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div className='relative flex h-20 items-center justify-between'>
 
-          {/* Mobile Menu Button */}
-          <div className='absolute inset-y-0 left-0 flex items-center md:hidden'>
-            <button
-              type='button'
-              id='mobile-dropdown-button'
-              className='inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black'
-              aria-controls='mobile-menu'
-              aria-expanded='false'
-            >
-              <svg
-                className='block h-6 w-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth='1.5'
-                stroke='currentColor'
-                aria-hidden='true'
-              >
-                <path strokeLinecap='round' strokeLinejoin='round' d='M4 6h16M4 12h16M4 18h16' />
-              </svg>
-            </button>
+          {/* Left side - Logo and nav links */}
+          <div className='flex flex-1 items-center justify-start'>
+            <Link className='flex flex-shrink-0 items-center' href='/'>
+              <Image className='h-10 w-auto' src={logo} alt='UGA arch logo' />
+              <span className='hidden md:block text-white text-2xl font-bold ml-2'>UGA Items</span>
+            </Link>
+            <div className='hidden md:ml-6 md:block'>
+              <div className='flex space-x-2 ml-6'>
+                <Link href='/' className='text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'>Home</Link>
+                <Link href='/about' className='text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'>About</Link>
+                <Link href='/contact' className='text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'>Contact</Link>
+              </div>
+            </div>
           </div>
 
-          {/* Logo & Site Title */}
-          <Link className='flex items-center' href='/'>
-            <span className='hidden md:block text-teal-600 text-3xl font-bold ml-2'>
-              ClassClips
-            </span>
-          </Link>
-
-          {/* Desktop Links */}
-          <div className='hidden md:ml-6 md:flex space-x-4'>
-            <Link href='/' className='text-black hover:underline px-3 py-2'>
-              Home
-            </Link>
-            <Link href='/about' className='text-black hover:underline px-3 py-2'>
-              About
-            </Link>
-            
-            <Link href='/show-items' className='text-black hover:underline px-3 py-2'>
-              Content
-            </Link>
+          {/* Right side - Auth status */}
+          <div className='hidden md:block md:ml-6'>
+            <div className='flex items-center justify-end text-white space-x-4'>
+              {isLoggedIn && session?.user ? (
+                <>
+                  <span>Welcome, {session.user?.name || session.user?.email}</span>
+                  <button
+                    onClick={ handleLogout }
+                    className='bg-gray-400 hover:bg-gray-500 rounded-md px-3 py-2'
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <span className='bg-gray-400 hover:bg-gray-500 rounded-md px-3 py-2'>
+                  <Link href='/login' className='mr-1'>Login</Link> | <Link href='/signup' className='ml-1'>Register</Link>
+                </span>
+              )}
+            </div>
           </div>
 
-          {/* Auth Button */}
-          <div className="hidden md:flex space-x-4">
-            <button
-              onClick={handleLogin}
-              className='px-4 py-1.5 bg-orange-500 text-white border border-black rounded-md hover:bg-orange-600 transition'
-            >
-              {isLoggedIn ? 'Logout' : 'Login | Register'}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div className='md:hidden hidden' id='mobile-menu'>
-        <div className='space-y-1 px-2 pb-3 pt-2'>
-          <Link href='/' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
-            Home
-          </Link>
-          <Link href='/about' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
-            About
-          </Link>
-          <Link href='/show-items' className='block text-black rounded-md px-3 py-2 text-base font-medium'>
-            Content
-          </Link>
-          <button
-            onClick={handleLogin}
-            className='w-full text-left text-black border border-black px-3 py-2 rounded-md mt-2 hover:bg-black hover:text-white transition'
-          >
-            {isLoggedIn ? 'Logout' : 'Login or Register'}
-          </button>
         </div>
       </div>
     </nav>
@@ -101,14 +78,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-// const [isLoggedIn, setIsLoggedIn] = useState(false);
-//   // let isLoggedIn = false;
-
-//   const handleLogin = () => {
-//     setIsLoggedIn(prev=>!prev);
-//   }
-
-
