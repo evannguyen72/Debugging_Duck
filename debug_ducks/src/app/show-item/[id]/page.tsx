@@ -17,23 +17,32 @@ interface ItemProps {
 
 export default function ShowItemDetails() {
   const [item, setItem] = useState<ItemProps['item'] | null>(null);
+  const [liked, setLiked] = useState(false);
   const router = useRouter();
   const params = useParams();
   const id = params?.id as string;
 
   useEffect(() => {
-    const fetchItem = async () => {
+    const fetchItemAndSession = async () => {
       try {
-        const response = await fetch(`/api/items/${id}`);
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
-        setItem(data.item);
-      } catch (error) {
-        console.log('Error from ShowItemDetails', error);
+        const itemRes = await fetch(`/api/items/${id}`);
+        const itemData = await itemRes.json();
+  
+        const sessionRes = await fetch("/api/auth/session");
+        const sessionData = await sessionRes.json();
+        const email = sessionData?.user?.email || null;
+  
+        setItem(itemData.item);
+  
+        if (email && itemData.item.likedBy?.includes(email)) {
+          setLiked(true); // user already liked this
+        }
+      } catch (err) {
+        console.error("Failed to load item or session:", err);
       }
     };
-
-    if (id) fetchItem();
+  
+    if (id) fetchItemAndSession();
   }, [id]);
 
   const onDeleteClick = async () => {
@@ -47,6 +56,24 @@ export default function ShowItemDetails() {
       console.log('Error in ShowItemDetails_deleteClick', error);
     }
   };
+
+  const handleLike = async () => {
+    try {
+      const response = await fetch(`/api/items/${id}/like`, {
+        method: 'POST',
+      });
+  
+      if (!response.ok) return;
+  
+      const data = await response.json();
+      setItem(data.item); // updates with new likeCount
+      setLiked(true);
+    } catch (error) {
+      console.error("Error liking item:", error);
+    }
+  };
+
+  
 
   return (
     <div className="min-h-screen bg-teal-50 px-4 py-10">
@@ -90,7 +117,20 @@ export default function ShowItemDetails() {
         </div>
 
         {/* likes */}
-        <p className="text-sm text-gray-500 mt-4">👍 {item?.likeCount} Likes</p>
+        <div className="mt-4 flex items-center gap-4">
+          <p className="text-sm text-gray-500">👍 {item?.likeCount ?? 0} Likes</p>
+          <button 
+          onClick={handleLike}
+          disabled={liked}
+          className={`text-sm px-3 py-1 rounded border transition ${
+            liked
+              ? "bg-green-200 text-green-700 border-green-400 cursor-not-allowed"
+              : "text-blue-600 border-blue-600 hover:bg-blue-50"
+          }`}
+          >
+            {liked ? "Liked" : "Like"}
+          </button>
+        </div>
 
         {/* action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
