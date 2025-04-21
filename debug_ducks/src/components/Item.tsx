@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface ItemProps {
     item: {
-      _id: number;
+      _id: string;
       title: string;
       description: string;
       url: string;
