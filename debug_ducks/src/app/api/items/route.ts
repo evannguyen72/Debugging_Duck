@@ -2,7 +2,7 @@ import connectMongoDB from "../../../../config/mongodb";
 import Item from "../../../models/itemSchema";
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import { generateSummary } from "@/lib/openai"; // ✅ NEW
+import { generateSummary } from "@/lib/summarizer"; // ✅ NEW
 
 export async function POST(request: NextRequest) {
   try {
