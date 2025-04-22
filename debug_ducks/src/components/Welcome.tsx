@@ -110,14 +110,7 @@ const Welcome = () => {
         {/* Footer */}
         <footer className="bg-black text-white text-sm flex justify-between items-center px-6 py-4">
           <span>© 2025 ClassClips, Inc. All rights reserved.</span>
-          <div className="flex gap-4">
-            <Link href="/login" className="px-4 py-1 border border-white rounded hover:bg-white hover:text-black transition">
-              Login
-            </Link>
-            <Link href="/signup" className="px-4 py-1 bg-orange-500 text-white rounded hover:bg-orange-600 transition">
-              Create Account
-            </Link>
-          </div>
+          
         </footer>
       </div>
     );
