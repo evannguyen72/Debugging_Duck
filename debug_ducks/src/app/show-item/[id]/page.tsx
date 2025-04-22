@@ -94,11 +94,9 @@ export default function ShowItemDetails() {
 
         {/* Header */}
         <h1 className="text-3xl font-bold text-teal-700 text-center mb-2">
-          Web Programming
+          {item?.title}
         </h1>
-        <p className="text-center text-gray-700 mb-6">
-          Web programming is the process of designing and developing websites or web applications...
-        </p>
+        
 
         {/* Image */}
         {item?.url && (
@@ -117,11 +115,6 @@ export default function ShowItemDetails() {
           Created by: {isOwner ? 'You' : item?.owner || 'Unknown'}
         </div>
 
-        {/* description box */}
-        <div className="w-full p-4 border border-gray-300 rounded-md text-gray-800 whitespace-pre-wrap bg-gray-50">
-          {item?.description}
-        </div>
-
         {/* AI-generated summary */}
         {item?.summary && (
         <div className="mt-6">
@@ -131,6 +124,13 @@ export default function ShowItemDetails() {
         </div>
       </div>
          )}
+        
+        {/* description box */}
+        <div className="w-full p-4 border border-gray-300 rounded-md text-gray-800 whitespace-pre-wrap bg-gray-50">
+          {item?.description}
+        </div>
+
+        
 
         {/* likes */}
         <div className="mt-4 flex items-center gap-4">
