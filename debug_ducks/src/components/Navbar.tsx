@@ -44,6 +44,7 @@ const Navbar = ({ session }: NavbarProps) => {
             <div className="hidden md:flex space-x-4 ml-4">
               <Link href="/" className="text-teal-800 hover:text-orange-600 font-medium px-3 py-2 rounded transition">Home</Link>
               <Link href="/show-items" className="text-teal-800 hover:text-orange-600 font-medium px-3 py-2 rounded transition">Content</Link>
+              <Link href="/ReadMe" className="text-teal-800 hover:text-orange-600 font-medium px-3 py-2 rounded transition">ReadMe</Link>
             </div>
           </div>
   
