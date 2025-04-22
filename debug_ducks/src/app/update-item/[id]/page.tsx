@@ -6,7 +6,7 @@ import Card from '../../../components/Card';
 
 export default function UpdateItem() {
     const [item, setItem] = useState ({
-      owner: 0,
+      owner: '',
       title: '',
       description: '',
       url: '',
@@ -27,7 +27,7 @@ export default function UpdateItem() {
         const data = await response.json();
         const itemData = data.item; 
         setItem({
-            owner: itemData.owner || 0,
+            owner: itemData.owner || '',
             title: itemData.title || '',
             description: itemData.description || '',
             url: itemData.url || '',
@@ -81,15 +81,6 @@ export default function UpdateItem() {
     
           <Card className="rounded-2xl p-8 shadow-lg bg-white bg-opacity-90">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <input
-                name="owner"
-                type="number"
-                value={item.owner}
-                onChange={handleChange}
-                placeholder="Owner ID"
-                required
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
               <input
                 name="title"
                 type="text"

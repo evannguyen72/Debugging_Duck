@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Card from '../../components/Card';
 
 export default function ItemAddForm() {
   const [formData, setFormData] = useState({
-    owner: 0,
+    owner: '', 
     title: '',
     description: '',
     url: '',
@@ -15,11 +15,30 @@ export default function ItemAddForm() {
 
   const router = useRouter();
 
+  // Fetch user email from session on mount
+  useEffect(() => {
+    const fetchSession = async () => {
+      try {
+        const res = await fetch('/api/auth/session');
+        const data = await res.json();
+        const email = data?.user?.email;
+
+        if (email) {
+          setFormData(prev => ({ ...prev, owner: email }));
+        }
+      } catch (error) {
+        console.error('Error fetching session:', error);
+      }
+    };
+
+    fetchSession();
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: name === 'owner' ? Number(value) : value,
+      [name]: value,
     }));
   };
 
@@ -39,7 +58,7 @@ export default function ItemAddForm() {
         throw new Error('Network response was not ok');
       }
 
-      setFormData({ owner: 0, title: '', description: '', url: '', likeCount: 0 });
+      setFormData({ owner: '', title: '', description: '', url: '', likeCount: 0 });
       router.push('/show-items');
     } catch (error) {
       console.error('Error in CreateItem!', error);
@@ -54,22 +73,6 @@ export default function ItemAddForm() {
         </h2>
   
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Owner ID */}
-          <div>
-            <label className="block text-lg font-semibold mb-1">
-              Owner ID
-            </label>
-            <input
-              name="owner"
-              type="number"
-              value={formData.owner}
-              onChange={handleChange}
-              placeholder="Type Owner ID Here"
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-          </div>
-  
           {/* Course Name (Title) */}
           <div>
             <label className="block text-lg font-semibold mb-1">
@@ -122,6 +125,7 @@ export default function ItemAddForm() {
             <button
               type="submit"
               className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full shadow-md transition"
+              disabled={!formData.owner} // disable if session hasn't loaded yet
             >
               Submit
             </button>
