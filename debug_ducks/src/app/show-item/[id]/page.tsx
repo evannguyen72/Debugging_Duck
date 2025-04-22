@@ -122,6 +122,16 @@ export default function ShowItemDetails() {
           {item?.description}
         </div>
 
+        {/* AI-generated summary */}
+        {item?.summary && (
+        <div className="mt-6">
+        <h2 className="text-lg font-semibold text-teal-700 mb-2">AI Summary:</h2>
+        <div className="w-full p-4 border border-teal-300 rounded-md bg-teal-50 text-gray-800 whitespace-pre-wrap">
+        {item.summary}
+        </div>
+      </div>
+         )}
+
         {/* likes */}
         <div className="mt-4 flex items-center gap-4">
           <p className="text-sm text-gray-500">👍 {item?.likeCount ?? 0} Likes</p>

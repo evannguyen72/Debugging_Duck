@@ -8,6 +8,7 @@ interface IItem extends Document {
   url?: string;
   likeCount: number;
   likedBy: string[];
+  summary?: string;
 }
 
 const itemSchema = new Schema<IItem>({
@@ -32,6 +33,10 @@ const itemSchema = new Schema<IItem>({
   likedBy: {
     type: [String],
     default: [],
+  },
+  summary: {
+    type: String,
+    required: false, // ✅ Add this field at the end
   },
 });
 
